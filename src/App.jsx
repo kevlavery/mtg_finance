@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 import configureStore, { history } from './store';
 import MTGFinance from './mtgFinance';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const store = configureStore();
 

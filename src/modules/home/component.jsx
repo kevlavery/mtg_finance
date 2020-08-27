@@ -3,24 +3,24 @@ import styled from 'styled-components';
 import SearchBar from '../search/searchBarComponent';
 
 const StyledJumbo = styled.div`
-    background-color: #24305E !important;
-    text-align: center;
-    color: #FFF;
+  background-color: #24305E !important;
+  text-align: center;
+  color: #FFF;
 `;
 
 const StyledSlogan = styled.p`
-    font-size: 2.5rem;
+  font-size: 2.5rem;
 `;
 
 const HomeTitle = styled.h1`
-    font-family: 'Pacifico', cursive;
-    font-size: 6.5rem;
-    padding: 100px 0px;
+  font-family: 'Pacifico', cursive;
+  font-size: 6.5rem;
+  padding: 100px 0px;
 `;
 
 const StyledBody = styled.div`
-    background-color: #F8E9A1;
-    min-height: 100vh !important;
+  background-color: #F8E9A1;
+  min-height: 100vh !important;
 `;
 
 

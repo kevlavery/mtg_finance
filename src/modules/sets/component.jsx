@@ -13,10 +13,6 @@ const SetTitle = styled.h1`
     padding: 20px;
 `;
 
-const CardSets = styled.div`
-    margin: 0px;
-`;
-
 const CardLink = styled.div`
     padding: 5px;
 `;
@@ -40,7 +36,7 @@ class Sets extends Component {
     );
 
     return (
-      <CardSets className="container">
+      <div className="container">
         <SetTitle>Card Sets</SetTitle>
         <span className="sets-error">{error}</span>
         {isFetching ? <LoadingSpinner /> : (
@@ -48,7 +44,7 @@ class Sets extends Component {
             { setLinks }
           </div>
         )}
-      </CardSets>
+      </div>
     );
   }
 }
