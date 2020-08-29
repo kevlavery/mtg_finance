@@ -31,14 +31,23 @@ export default function set(
     case SET_POSITION:
       return { ...state, position: action.position };
     case SORT_CARDS: {
-      console.log(action.sortKey);
-      console.log(state);
-      const cardSlice = state.cards.slice();
-      //console.log(cardSlice.cards[0].price.length);
-      
+      let cardSlice = state.cards.slice();
+      // reverse card prices so that element zero is the most recent
+      if (action.sortKey === "price[0].value") {
+        cardSlice.forEach(element => {
+          element.price.reverse();
+        });
+      }
+      cardSlice = orderBy(cardSlice, action.sortKey, action.order);
+      // set card prices back to original order after cards are sorted
+      if (action.sortKey === "price[0].value") {
+        cardSlice.forEach(element => {
+          element.price.reverse();
+        });
+      }
       return {
         ...state,
-        cards: orderBy(cardSlice, action.sortKey, action.order),
+        cards: cardSlice,
       };
     }
     case ERROR:

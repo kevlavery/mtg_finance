@@ -24,12 +24,23 @@ export default function query(
     case SET_QUERY:
       return { ...state, content: action.content };
     case SORT_RESULTS: {
-      console.log(action.sortKey);
-      const cardSlice = state.cards.slice();
-      console.log(cardSlice.cards.price.length);
+      let cardSlice = state.cards.slice();
+      // reverse card prices so that element zero is the most recent
+      if (action.sortKey === "price[0].value") {
+        cardSlice.forEach(element => {
+          element.price.reverse();
+        });
+      }
+      cardSlice = orderBy(cardSlice, action.sortKey, action.order);
+      // set card prices back to original order after cards are sorted
+      if (action.sortKey === "price[0].value") {
+        cardSlice.forEach(element => {
+          element.price.reverse();
+        });
+      }
       return {
         ...state,
-        cards: orderBy(cardSlice, action.sortKey, action.order),
+        cards: cardSlice,
       };
     }
     case ERROR:

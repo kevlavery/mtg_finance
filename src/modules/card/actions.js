@@ -1,5 +1,5 @@
 import fetch from 'cross-fetch';
-import * as configurationData from '../../data/configuration.json';
+import configurationData from '../../data/configuration.json';
 import * as types from './types';
 
 const requestCard = () => ({
@@ -39,8 +39,9 @@ export const fetchCard = (productId) => async (dispatch) => {
 export const findOtherEditions = (name) => async (dispatch) => {
   dispatch(requestOtherEditions);
   const { backEndURL } = configurationData;
+
   const query = `^${name}$`;
-  return fetch(`${backEndURL}/card`,
+  return fetch(`${ backEndURL }/card`,
     {
       method: 'POST',
       body: JSON.stringify({ query }),

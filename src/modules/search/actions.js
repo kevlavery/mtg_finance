@@ -1,5 +1,5 @@
 import fetch from 'cross-fetch';
-import * as configurationData from '../../data/configuration.json';
+import configurationData from '../../data/configuration.json';
 import * as types from './types';
 import { receiveCard } from '../card/actions';
 import { handleErrors } from '../errors/apiError';

@@ -20,7 +20,7 @@ const setsError = (error) => ({
 export const fetchSet = () => async (dispatch) => {
   dispatch(requestSets());
   const { backEndURL } = configurationData;
-  fetch(`${backEndURL}/sets`,
+  fetch(`${ backEndURL }/sets`,
     {
       method: 'GET',
       headers: {

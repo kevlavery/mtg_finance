@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
