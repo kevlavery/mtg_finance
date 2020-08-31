@@ -24,8 +24,7 @@ export const CardSummary = (props) => {
     price = currentCard.price[currentCard.price.length - 1].value;
   }
 
-  // add feature to show set name for query resurts
-  medPrice = (Number.isNaN(price)
+  medPrice = (Number.isNaN(parseInt(price))
     ? 'N/A' : Number(price).toFixed(2));
 
   return (
@@ -44,8 +43,7 @@ export const CardSummary = (props) => {
           </Text>
           )}
         <Text>
-          Price: $
-          {medPrice}
+          Price: ${medPrice}
         </Text>
       </Link>
     </CardHolder>

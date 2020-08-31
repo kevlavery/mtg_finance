@@ -98,7 +98,8 @@ class Card extends Component {
     }
     const image = this.getImageName();
     const price = info.price[info.price.length - 1].value;
-    const medPrice = (Number.isNaN(price) ? 'N/A' : Number(price).toFixed(2));
+    const medPrice = (Number.isNaN(parseInt(price)) 
+      ? 'N/A' : Number(price).toFixed(2));
 
     let otherEditions = [];
     if (currentCard.editions.length !== 0) {
