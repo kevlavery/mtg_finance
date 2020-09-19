@@ -1,5 +1,7 @@
 # mtg_finanace
 
+[MTG Finanace][https://mtg-finance.herokuapp.com/]
+
 ## Description
 
 This project is a React-Redux web app displaying Magic the Gathering card prices pulling data from the TCG Player API.
