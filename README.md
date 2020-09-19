@@ -1,6 +1,6 @@
 # mtg_finanace
 
-[MTG Finanace][https://mtg-finance.herokuapp.com/]
+[MTG Finanace](https://mtg-finance.herokuapp.com/)
 
 ## Description
 
