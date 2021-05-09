@@ -1,4 +1,3 @@
-import orderBy from 'lodash/orderBy';
 import {
   REQUEST,
   RECEIVE,
@@ -6,6 +5,40 @@ import {
   SORT_RESULTS,
   ERROR,
 } from './types';
+
+const deep_value = (obj, path) => 
+  path
+    .replace(/\[|\]\.?/g, '.')
+    .split('.')
+    .filter(s => s)
+    .reduce((acc, val) => acc && acc[val], obj);
+    
+function compare(property, ascending) {
+  return function (a, b) {
+    a = deep_value(a, property);
+    b = deep_value(b, property);
+
+    // equal items sort equally
+    if (a === b) {
+        return 0;
+    }
+    // nulls sort after anything else
+    else if (a === null) {
+        return 1;
+    }
+    else if (b === null) {
+        return -1;
+    }
+    // otherwise, if we're ascending, lowest sorts first
+    else if (ascending === "asc") {
+      return a < b ? -1 : 1;
+    }
+    // if descending, highest sorts first
+    else { 
+      return a < b ? 1 : -1;
+    }
+  };
+}
 
 export default function query(
   state = {
@@ -31,7 +64,7 @@ export default function query(
           element.price.reverse();
         });
       }
-      cardSlice = orderBy(cardSlice, action.sortKey, action.order);
+      cardSlice = cardSlice.sort(compare(action.sortKey, action.order));
       // set card prices back to original order after cards are sorted
       if (action.sortKey === "price[0].value") {
         cardSlice.forEach(element => {
